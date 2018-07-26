@@ -1,0 +1,25 @@
+@import 'styles/_colors.scss';
+@import 'styles/_typography.scss';
+
+
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100px auto 160px;
+  grid-template-areas: "header" "main" "footer";
+  align-content: stretch;
+  justify-content: flex-start;
+
+  min-height: 100vh;
+
+  font-family: $font-main;
+  background-color: $color-main;
+}
+
+footer {
+  background: $color-main url('images/pattern.png') left top repeat-x;
+  text-align: center;
+  line-height: 160px;
+
+  span {color: $color-red;}
+}

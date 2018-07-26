@@ -1,0 +1,45 @@
+{
+  "name": "demo-webpack-presentation",
+  "version": "1.0.0",
+  "description": "this is the result for my Front-End build tools Webpack presentation",
+  "main": "-",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build:prod": "webpack",
+    "build:dev": "webpack --watch",
+    "clean": "rm -rf build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/razvan-rosu/demo-webpack-presentation.git"
+  },
+  "keywords": [
+    "webpack",
+    "build",
+    "frontend"
+  ],
+  "author": "Răzvan Roșu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/razvan-rosu/demo-webpack-presentation/issues"
+  },
+  "homepage": "https://github.com/razvan-rosu/demo-webpack-presentation#readme",
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^1.1.11",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5"
+  },
+  "dependencies": {
+    "angular": "^1.7.2"
+  }
+}
