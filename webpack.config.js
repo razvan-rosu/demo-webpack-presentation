@@ -10,6 +10,16 @@ const CommonsChunkPlugin = require('./node_modules/webpack/lib/optimize/CommonsC
 // minify bundles
 const UglifyJsPlugin = require('./node_modules/webpack/lib/optimize/UglifyJsPlugin');
 
+// dynamicly insert hashed bundles into page template
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// resources gzip compression
+const CompressionPlugin = require("compression-webpack-plugin");
+
+// bundle performance debugger
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+
 module.exports = {
   entry: {
     app: [
@@ -22,7 +32,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.[chunkhash:4].js'
   },
   devServer: {
     inline: true,
@@ -60,7 +70,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("[name].bundle.css"),
+    new ExtractTextPlugin("[name].bundle.[contenthash:4].css"),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'vendor.bundle.js',
@@ -71,6 +81,19 @@ module.exports = {
           warnings: false,
           drop_console: false
       }
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'index.html'),
+      filename: 'index.html',
+      chunks: ['vendor', 'app']
+    }),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
+    new BundleAnalyzerPlugin()
   ]
 };
