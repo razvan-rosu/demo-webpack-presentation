@@ -4,3 +4,6 @@
 ## Presentation links
 * https://www.slideshare.net/RazvanRosu2/frontend-build-tools-webpack-107915399
 * https://speakerdeck.com/rzvnrosu/front-end-build-tools-webpack
+
+## An in depth example of a Webpack build 
+https://github.com/razvan-rosu/webpack1-boilerplate
